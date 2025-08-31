@@ -9,23 +9,23 @@ import Analytics from './views/Analytics.vue'
 import './style.css'
 
 const routes = [
-  { 
-    path: '/', 
-    name: 'Timeline', 
+  {
+    path: '/',
+    name: 'Timeline',
     component: Timeline,
-    meta: { title: 'Voice Command Timeline' }
+    meta: { title: 'Voice Command Timeline' },
   },
-  { 
-    path: '/analytics', 
-    name: 'Analytics', 
+  {
+    path: '/analytics',
+    name: 'Analytics',
     component: Analytics,
-    meta: { title: 'Analytics' }
-  }
+    meta: { title: 'Analytics' },
+  },
 ]
 
 const router = createRouter({
   history: createWebHistory(),
-  routes
+  routes,
 })
 
 router.beforeEach((to) => {

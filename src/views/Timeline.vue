@@ -1,28 +1,37 @@
 <template>
   <div class="space-y-6">
     <!-- Page Header -->
-    <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center space-y-4 sm:space-y-0">
+    <div
+      class="flex flex-col sm:flex-row sm:justify-between sm:items-center space-y-4 sm:space-y-0"
+    >
       <div>
         <h2 class="text-3xl font-bold text-gray-900 dark:text-white">Voice Command Timeline</h2>
         <p class="mt-2 text-gray-600 dark:text-gray-400">
           Real-time view of voice interactions processed by your Loqa system
         </p>
       </div>
-      
-      <button 
-        @click="fetchEvents"
-        :disabled="loading"
-        class="btn-primary"
-      >
-        <svg 
+
+      <button @click="fetchEvents" :disabled="loading" class="btn-primary">
+        <svg
           v-if="loading"
-          class="animate-spin -ml-1 mr-3 h-4 w-4 text-white" 
-          xmlns="http://www.w3.org/2000/svg" 
-          fill="none" 
+          class="animate-spin -ml-1 mr-3 h-4 w-4 text-white"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
           viewBox="0 0 24 24"
         >
-          <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-          <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+          <circle
+            class="opacity-25"
+            cx="12"
+            cy="12"
+            r="10"
+            stroke="currentColor"
+            stroke-width="4"
+          ></circle>
+          <path
+            class="opacity-75"
+            fill="currentColor"
+            d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+          ></path>
         </svg>
         <ArrowPathIcon v-else class="-ml-1 mr-2 h-4 w-4" />
         {{ loading ? 'Refreshing...' : 'Refresh' }}
@@ -47,9 +56,25 @@
 
     <div v-else-if="loading && events.length === 0" class="flex justify-center py-12">
       <div class="text-center">
-        <svg class="animate-spin h-8 w-8 text-gray-400 mx-auto" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-          <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-          <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+        <svg
+          class="animate-spin h-8 w-8 text-gray-400 mx-auto"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+        >
+          <circle
+            class="opacity-25"
+            cx="12"
+            cy="12"
+            r="10"
+            stroke="currentColor"
+            stroke-width="4"
+          ></circle>
+          <path
+            class="opacity-75"
+            fill="currentColor"
+            d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+          ></path>
         </svg>
         <p class="mt-2 text-sm text-gray-600 dark:text-gray-400">Loading voice events...</p>
       </div>
@@ -63,14 +88,10 @@
       </p>
     </div>
 
-    <VoiceEventTimeline 
-      v-else
-      :events="events" 
-      @event-click="handleEventClick"
-    />
+    <VoiceEventTimeline v-else :events="events" @event-click="handleEventClick" />
 
     <!-- Event Detail Modal -->
-    <EventDetailModal 
+    <EventDetailModal
       :open="selectedEvent !== null"
       :event="selectedEvent"
       @close="selectedEvent = null"
@@ -94,11 +115,11 @@ const fetchEvents = async () => {
   try {
     loading.value = true
     const response = await fetch('/api/voice-events')
-    
+
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`)
     }
-    
+
     const data = await response.json()
     events.value = data.events || []
     error.value = null
@@ -116,7 +137,7 @@ const handleEventClick = (event) => {
 
 onMounted(() => {
   fetchEvents()
-  
+
   // Auto-refresh every 5 seconds
   refreshInterval = setInterval(fetchEvents, 5000)
 })
