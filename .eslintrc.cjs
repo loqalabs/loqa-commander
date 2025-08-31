@@ -10,5 +10,16 @@ module.exports = {
   ],
   parserOptions: {
     ecmaVersion: 'latest'
-  }
+  },
+  rules: {
+    'vue/multi-word-component-names': 'off'
+  },
+  overrides: [
+    {
+      files: ['*.config.js'],
+      env: {
+        node: true
+      }
+    }
+  ]
 }
