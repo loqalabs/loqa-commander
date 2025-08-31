@@ -1,0 +1,16 @@
+# Global owners
+* @loqalabs/core-team
+
+# Frontend specific
+/src/ @loqalabs/frontend-team
+*.vue @loqalabs/frontend-team
+*.js @loqalabs/frontend-team
+*.ts @loqalabs/frontend-team
+
+# Docker and deployment
+Dockerfile @loqalabs/devops-team
+docker-compose.yml @loqalabs/devops-team
+nginx.conf @loqalabs/devops-team
+
+# CI/CD
+/.github/ @loqalabs/devops-team

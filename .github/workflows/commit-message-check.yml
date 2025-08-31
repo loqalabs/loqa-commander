@@ -1,0 +1,33 @@
+name: Check for AI Tool Attribution
+
+on:
+  pull_request:
+    branches: [ main, develop ]
+
+jobs:
+  check-ai-attribution:
+    name: Check Commit Messages for AI Attribution
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+
+    - name: Check commit messages
+      run: |
+        # Get all commit messages in the PR
+        COMMITS=$(git log --pretty=format:"%s%n%b" ${{ github.event.pull_request.base.sha }}..${{ github.event.pull_request.head.sha }})
+        
+        # Check for AI tool attribution patterns
+        if echo "$COMMITS" | grep -i -E "(claude|chatgpt|gpt-|ai generated|copilot|generated with|co-authored-by.*claude|co-authored-by.*gpt)" > /dev/null; then
+          echo "❌ AI tool attribution found in commit messages"
+          echo "Please remove AI attribution from commit messages before merging"
+          echo ""
+          echo "Found these potentially problematic patterns:"
+          echo "$COMMITS" | grep -i -E "(claude|chatgpt|gpt-|ai generated|copilot|generated with|co-authored-by.*claude|co-authored-by.*gpt)" || true
+          exit 1
+        else
+          echo "✅ No AI tool attribution found in commit messages"
+        fi

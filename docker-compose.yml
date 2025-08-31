@@ -1,0 +1,42 @@
+version: '3.8'
+
+services:
+  loqa-observer:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8080:80"
+    depends_on:
+      - loqa-hub
+    environment:
+      - NODE_ENV=production
+    networks:
+      - loqa-network
+    restart: unless-stopped
+    
+  # Reference loqa-hub service (assumes it's in the same docker network)
+  # This would typically be defined in the main docker-compose.yml
+  loqa-hub:
+    image: ghcr.io/loqalabs/loqa-hub:latest
+    ports:
+      - "3000:3000"
+      - "50051:50051"
+    environment:
+      - LOG_LEVEL=info
+      - DB_PATH=/data/loqa-hub.db
+      - HTTP_PORT=3000
+      - GRPC_PORT=50051
+    volumes:
+      - loqa-data:/data
+    networks:
+      - loqa-network
+    restart: unless-stopped
+
+networks:
+  loqa-network:
+    driver: bridge
+
+volumes:
+  loqa-data:
+    driver: local
