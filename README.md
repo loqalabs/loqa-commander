@@ -9,11 +9,21 @@ Loqa Observer is a Vue.js web application that provides real-time visualization 
 ## Features
 
 - **Real-time Timeline**: Chronological view of voice interactions
+- **Skills Management**: Complete skill administration interface (Milestone 4a)
 - **Dark Mode Support**: Automatic system preference detection with manual toggle
 - **Mobile Responsive**: Optimized for desktop and mobile devices
 - **Event Details**: Drill-down modals with complete JSON payload
 - **Analytics Dashboard**: Performance metrics and insights (coming soon)
 - **Auto-refresh**: Polling-based updates every 5 seconds
+
+### 🆕 Milestone 4a: Skills Management UI
+
+- **Skills Dashboard**: Overview of installed skills with statistics
+- **Skill Configuration**: Detailed configuration interface with tabs
+- **Enable/Disable**: One-click skill activation controls
+- **Permission Management**: View and understand skill permissions
+- **Real-time Status**: Live skill health and error monitoring
+- **Configuration Editor**: Edit skill settings with validation
 
 ## Tech Stack
 
@@ -49,13 +59,16 @@ The app connects to the Loqa Hub API via proxy configuration in `vite.config.js`
 
 ```
 src/
-├── components/        # Reusable Vue components
-├── views/            # Page-level components
-├── stores/           # Pinia stores for state management
-├── composables/      # Vue composables for shared logic
-├── App.vue           # Root component
-├── main.js           # Application entry point
-└── style.css         # Global styles and Tailwind imports
+├── components/           # Reusable Vue components
+│   └── SkillDetailModal.vue  # Skill configuration modal (Milestone 4a)
+├── views/               # Page-level components
+│   ├── Timeline.vue     # Voice events timeline
+│   └── Skills.vue       # Skills management interface (Milestone 4a)
+├── stores/              # Pinia stores for state management
+├── composables/         # Vue composables for shared logic
+├── App.vue              # Root component
+├── main.js              # Application entry point
+└── style.css            # Global styles and Tailwind imports
 ```
 
 ## License
