@@ -11,7 +11,7 @@
         </p>
       </div>
 
-      <button @click="fetchEvents" :disabled="loading" class="btn-primary">
+      <button @click="fetchData" :disabled="loading" class="btn-primary">
         <svg
           v-if="loading"
           class="animate-spin -ml-1 mr-3 h-4 w-4 text-white"
@@ -88,7 +88,7 @@
       </p>
     </div>
 
-    <VoiceEventTimeline v-else :events="events" @event-click="handleEventClick" />
+    <VoiceEventTimeline v-else :events="events" :active-pucks-count="activePucksCount" @event-click="handleEventClick" />
 
     <!-- Event Detail Modal -->
     <EventDetailModal
@@ -106,10 +106,24 @@ import VoiceEventTimeline from '@/components/VoiceEventTimeline.vue'
 import EventDetailModal from '@/components/EventDetailModal.vue'
 
 const events = ref([])
+const activePucksCount = ref(0)
 const loading = ref(true)
 const error = ref(null)
 const selectedEvent = ref(null)
 let refreshInterval = null
+
+const fetchActivePucks = async () => {
+  try {
+    const response = await fetch('/api/active-pucks')
+    if (response.ok) {
+      const data = await response.json()
+      activePucksCount.value = data.count || 0
+    }
+  } catch (err) {
+    console.error('Failed to fetch active pucks:', err)
+    // Don't update error state for this - it's supplementary data
+  }
+}
 
 const fetchEvents = async () => {
   try {
@@ -131,15 +145,19 @@ const fetchEvents = async () => {
   }
 }
 
+const fetchData = async () => {
+  await Promise.all([fetchEvents(), fetchActivePucks()])
+}
+
 const handleEventClick = (event) => {
   selectedEvent.value = event
 }
 
 onMounted(() => {
-  fetchEvents()
+  fetchData()
 
   // Auto-refresh every 5 seconds
-  refreshInterval = setInterval(fetchEvents, 5000)
+  refreshInterval = setInterval(fetchData, 5000)
 })
 
 onUnmounted(() => {

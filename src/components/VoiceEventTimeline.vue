@@ -47,7 +47,7 @@
           </div>
           <div>
             <div class="text-2xl font-bold text-primary-600 dark:text-primary-400">
-              {{ uniquePucks }}
+              {{ activePucksCount }}
             </div>
             <div class="text-sm text-gray-600 dark:text-gray-400">Active Pucks</div>
           </div>
@@ -72,6 +72,10 @@ const props = defineProps({
     type: Array,
     default: () => [],
   },
+  activePucksCount: {
+    type: Number,
+    default: 0,
+  },
 })
 
 const emit = defineEmits(['event-click'])
@@ -80,8 +84,6 @@ const emit = defineEmits(['event-click'])
 const sortedEvents = computed(() =>
   props.events.slice().sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp))
 )
-
-const uniquePucks = computed(() => new Set(sortedEvents.value.map((e) => e.puck_id)).size)
 
 const handleEventClick = (event) => {
   emit('event-click', event)
