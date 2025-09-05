@@ -1,5 +1,5 @@
 <template>
-  <div class="voice-event-card" :class="{ 'compact': !expanded }">
+  <div class="voice-event-card" :class="{ compact: !expanded }">
     <!-- Event Header (always visible) -->
     <div class="flex items-start justify-between">
       <div class="flex-1">
@@ -25,8 +25,12 @@
             {{ formatTimestamp(event.timestamp) }}
           </p>
           <!-- Compact view: show transcription snippet -->
-          <p v-if="!expanded" class="text-xs text-gray-600 dark:text-gray-300 italic truncate ml-2 flex-1">
-            "{{ (event.transcription || 'No transcription available').substring(0, 50) }}{{ (event.transcription || '').length > 50 ? '...' : '' }}"
+          <p
+            v-if="!expanded"
+            class="text-xs text-gray-600 dark:text-gray-300 italic truncate ml-2 flex-1"
+          >
+            "{{ (event.transcription || 'No transcription available').substring(0, 50)
+            }}{{ (event.transcription || '').length > 50 ? '...' : '' }}"
           </p>
         </div>
       </div>
@@ -36,14 +40,19 @@
         class="ml-2 text-gray-400 hover:text-gray-600 dark:hover:text-gray-200 focus:outline-none"
         :aria-label="expanded ? 'Collapse' : 'Expand'"
       >
-        <svg 
-          class="w-4 h-4 transition-transform duration-200" 
+        <svg
+          class="w-4 h-4 transition-transform duration-200"
           :class="{ 'rotate-180': expanded }"
-          fill="none" 
-          stroke="currentColor" 
+          fill="none"
+          stroke="currentColor"
           viewBox="0 0 24 24"
         >
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M19 9l-7 7-7-7"
+          />
         </svg>
       </button>
     </div>

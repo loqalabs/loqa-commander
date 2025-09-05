@@ -88,7 +88,12 @@
       </p>
     </div>
 
-    <VoiceEventTimeline v-else :events="events" :active-pucks-count="activePucksCount" @event-click="handleEventClick" />
+    <VoiceEventTimeline
+      v-else
+      :events="events"
+      :active-pucks-count="activePucksCount"
+      @event-click="handleEventClick"
+    />
 
     <!-- Event Detail Modal -->
     <EventDetailModal
