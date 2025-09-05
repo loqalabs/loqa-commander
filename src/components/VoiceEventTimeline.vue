@@ -47,9 +47,9 @@
           </div>
           <div>
             <div class="text-2xl font-bold text-primary-600 dark:text-primary-400">
-              {{ activePucksCount }}
+              {{ activeRelaysCount }}
             </div>
-            <div class="text-sm text-gray-600 dark:text-gray-400">Active Pucks</div>
+            <div class="text-sm text-gray-600 dark:text-gray-400">Active Relays</div>
           </div>
         </div>
       </div>
@@ -72,7 +72,7 @@ const props = defineProps({
     type: Array,
     default: () => [],
   },
-  activePucksCount: {
+  activeRelaysCount: {
     type: Number,
     default: 0,
   },

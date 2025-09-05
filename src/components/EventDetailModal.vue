@@ -51,9 +51,9 @@
                     </h4>
                     <dl class="space-y-1">
                       <div class="flex justify-between">
-                        <dt class="text-sm text-gray-500 dark:text-gray-400">Puck ID:</dt>
+                        <dt class="text-sm text-gray-500 dark:text-gray-400">Relay ID:</dt>
                         <dd class="text-sm font-medium text-gray-900 dark:text-white">
-                          {{ event.puck_id }}
+                          {{ event.relay_id }}
                         </dd>
                       </div>
                       <div class="flex justify-between">

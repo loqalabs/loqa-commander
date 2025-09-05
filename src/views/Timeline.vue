@@ -91,7 +91,7 @@
     <VoiceEventTimeline
       v-else
       :events="events"
-      :active-pucks-count="activePucksCount"
+      :active-relay-count="activeRelaysCount"
       @event-click="handleEventClick"
     />
 
@@ -111,21 +111,21 @@ import VoiceEventTimeline from '@/components/VoiceEventTimeline.vue'
 import EventDetailModal from '@/components/EventDetailModal.vue'
 
 const events = ref([])
-const activePucksCount = ref(0)
+const activeRelaysCount = ref(0)
 const loading = ref(true)
 const error = ref(null)
 const selectedEvent = ref(null)
 let refreshInterval = null
 
-const fetchActivePucks = async () => {
+const fetchActiveRelays = async () => {
   try {
-    const response = await fetch('/api/active-pucks')
+    const response = await fetch('/api/active-relays')
     if (response.ok) {
       const data = await response.json()
-      activePucksCount.value = data.count || 0
+      activeRelaysCount.value = data.count || 0
     }
   } catch (err) {
-    console.error('Failed to fetch active pucks:', err)
+    console.error('Failed to fetch active relays:', err)
     // Don't update error state for this - it's supplementary data
   }
 }
@@ -151,7 +151,7 @@ const fetchEvents = async () => {
 }
 
 const fetchData = async () => {
-  await Promise.all([fetchEvents(), fetchActivePucks()])
+  await Promise.all([fetchEvents(), fetchActiveRelays()])
 }
 
 const handleEventClick = (event) => {

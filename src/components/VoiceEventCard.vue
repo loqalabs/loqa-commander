@@ -5,7 +5,7 @@
       <div class="flex-1">
         <div class="flex items-center space-x-2 mb-1">
           <span class="text-sm font-medium text-gray-900 dark:text-white">
-            Puck {{ event.puck_id }}
+            Relay {{ event.relay_id }}
           </span>
           <span
             v-if="event.success"
