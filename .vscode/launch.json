@@ -1,0 +1,36 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Launch Chrome (Commander UI)",
+            "type": "chrome",
+            "request": "launch",
+            "url": "http://localhost:5173",
+            "webRoot": "${workspaceFolder}",
+            "runtimeArgs": ["--disable-web-security"],
+            "sourceMaps": true
+        },
+        {
+            "name": "Launch Firefox (Commander UI)",
+            "type": "firefox",
+            "request": "launch",
+            "url": "http://localhost:5173",
+            "webRoot": "${workspaceFolder}",
+            "pathMappings": [
+                {
+                    "url": "http://localhost:5173",
+                    "path": "${workspaceFolder}"
+                }
+            ]
+        },
+        {
+            "name": "Attach to Node (Vite Dev Server)",
+            "type": "node",
+            "request": "attach",
+            "port": 9229,
+            "restart": true,
+            "localRoot": "${workspaceFolder}",
+            "remoteRoot": "${workspaceFolder}"
+        }
+    ]
+}

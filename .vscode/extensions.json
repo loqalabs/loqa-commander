@@ -1,0 +1,25 @@
+{
+    "recommendations": [
+        // Vue.js development
+        "Vue.volar",
+        "Vue.vscode-typescript-vue-plugin",
+        
+        // JavaScript/TypeScript formatting and linting
+        "esbenp.prettier-vscode",
+        "dbaeumer.vscode-eslint",
+        
+        // CSS and Tailwind
+        "bradlc.vscode-tailwindcss",
+        
+        // General productivity
+        "formulahendry.auto-rename-tag",
+        "christian-kohler.path-intellisense",
+        "ms-vscode.vscode-json",
+        
+        // Git integration
+        "eamodio.gitlens",
+        
+        // Icons and themes (optional)
+        "vscode-icons-team.vscode-icons"
+    ]
+}
