@@ -14,8 +14,9 @@ dist-ssr
 coverage
 *.local
 
-# Editor directories and files (VSCode configs are shared)
+# Editor directories and files
 .idea
+.vscode
 *.suo
 *.ntvs*
 *.njsproj
