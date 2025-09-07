@@ -199,11 +199,18 @@
           <div v-if="loading" class="flex items-center justify-center py-8">
             <div class="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-500"></div>
           </div>
-          <div v-else-if="recentEvents.length === 0" class="text-center py-8 text-gray-500 dark:text-gray-400">
+          <div
+            v-else-if="recentEvents.length === 0"
+            class="text-center py-8 text-gray-500 dark:text-gray-400"
+          >
             No recent voice commands
           </div>
           <div v-else>
-            <div v-for="event in recentEvents.slice(0, 5)" :key="event.id" class="flex items-center space-x-4 py-3 border-b border-gray-100 dark:border-gray-700 last:border-b-0">
+            <div
+              v-for="event in recentEvents.slice(0, 5)"
+              :key="event.id"
+              class="flex items-center space-x-4 py-3 border-b border-gray-100 dark:border-gray-700 last:border-b-0"
+            >
               <div class="flex-shrink-0">
                 <div class="w-2 h-2 rounded-full" :class="getStatusColor(event.success)"></div>
               </div>
@@ -224,7 +231,7 @@
 </template>
 
 <script setup>
-import { ref, computed, onMounted } from 'vue'
+import { ref, onMounted } from 'vue'
 
 const activeRelays = ref(1)
 const enabledSkills = ref(3)
@@ -245,14 +252,14 @@ const formatTime = (timestamp) => {
 const loadDashboardData = async () => {
   try {
     loading.value = true
-    
+
     // Load recent events for activity summary
     const response = await fetch('/api/events?limit=10')
     if (response.ok) {
       const data = await response.json()
       recentEvents.value = data.events || []
     }
-    
+
     // Load system stats (these would come from actual API endpoints)
     const statsResponse = await fetch('/api/stats')
     if (statsResponse.ok) {

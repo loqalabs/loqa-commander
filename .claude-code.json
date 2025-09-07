@@ -8,7 +8,11 @@
     "Reference issue numbers in commits when applicable",
     "Update ALL affected documentation proactively without being asked",
     "Test that changes don't break existing functionality",
-    "Maintain backward compatibility where possible"
+    "Maintain backward compatibility where possible",
+    "ALWAYS run 'npm run quality-check' before any git push or commit",
+    "NEVER push code that fails linting, formatting, type checking, or tests",
+    "Fix all unused variables and ensure consistent code formatting",
+    "Run 'npm run lint' to auto-fix formatting issues before manual fixes"
   ],
   "documentation_checklist": [
     "README.md files (main and service-specific)",

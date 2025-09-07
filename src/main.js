@@ -39,7 +39,7 @@ const routes = [
   // Legacy routes for compatibility
   {
     path: '/timeline',
-    redirect: '/debug'
+    redirect: '/debug',
   },
   {
     path: '/analytics',

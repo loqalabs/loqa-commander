@@ -6,7 +6,9 @@
     </div>
 
     <!-- Settings Coming Soon -->
-    <div class="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg p-6">
+    <div
+      class="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg p-6"
+    >
       <div class="flex">
         <div class="flex-shrink-0">
           <svg
@@ -23,14 +25,18 @@
           </svg>
         </div>
         <div class="ml-3">
-          <h3 class="text-sm font-medium text-blue-800 dark:text-blue-300">Settings Interface Coming Soon</h3>
+          <h3 class="text-sm font-medium text-blue-800 dark:text-blue-300">
+            Settings Interface Coming Soon
+          </h3>
           <p class="mt-1 text-sm text-blue-700 dark:text-blue-400">
-            The administrative settings interface is being developed as part of the Loqa Commander transformation.
-            This will include system configuration, user management, backup controls, and privacy settings.
+            The administrative settings interface is being developed as part of the Loqa Commander
+            transformation. This will include system configuration, user management, backup
+            controls, and privacy settings.
           </p>
           <div class="mt-3">
             <p class="text-xs text-blue-600 dark:text-blue-400">
-              For now, system configuration is managed through environment variables and configuration files.
+              For now, system configuration is managed through environment variables and
+              configuration files.
             </p>
           </div>
         </div>
@@ -40,7 +46,9 @@
     <!-- Planned Features Preview -->
     <div class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6">
       <div class="bg-white dark:bg-gray-800 rounded-lg shadow p-6 opacity-75">
-        <h3 class="text-lg font-medium text-gray-900 dark:text-white mb-4">🔧 System Configuration</h3>
+        <h3 class="text-lg font-medium text-gray-900 dark:text-white mb-4">
+          🔧 System Configuration
+        </h3>
         <ul class="space-y-2 text-sm text-gray-600 dark:text-gray-400">
           <li>• Voice detection sensitivity</li>
           <li>• Response time settings</li>
@@ -48,7 +56,9 @@
           <li>• LLM model preferences</li>
         </ul>
         <div class="mt-4">
-          <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-300">
+          <span
+            class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-300"
+          >
             Coming Soon
           </span>
         </div>
@@ -63,14 +73,18 @@
           <li>• Role-based administration</li>
         </ul>
         <div class="mt-4">
-          <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-300">
+          <span
+            class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-300"
+          >
             Coming Soon
           </span>
         </div>
       </div>
 
       <div class="bg-white dark:bg-gray-800 rounded-lg shadow p-6 opacity-75">
-        <h3 class="text-lg font-medium text-gray-900 dark:text-white mb-4">🔐 Privacy & Security</h3>
+        <h3 class="text-lg font-medium text-gray-900 dark:text-white mb-4">
+          🔐 Privacy & Security
+        </h3>
         <ul class="space-y-2 text-sm text-gray-600 dark:text-gray-400">
           <li>• Data retention policies</li>
           <li>• Logging levels and sanitization</li>
@@ -78,7 +92,9 @@
           <li>• Encryption settings</li>
         </ul>
         <div class="mt-4">
-          <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-300">
+          <span
+            class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-300"
+          >
             Coming Soon
           </span>
         </div>
@@ -93,7 +109,9 @@
           <li>• Export configuration</li>
         </ul>
         <div class="mt-4">
-          <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-300">
+          <span
+            class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-300"
+          >
             Coming Soon
           </span>
         </div>
