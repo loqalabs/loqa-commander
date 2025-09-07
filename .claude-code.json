@@ -37,11 +37,20 @@
     "testing": "Include appropriate test coverage for changes"
   },
   "repository_context": {
-    "structure": "loqalabs/ contains multiple individual git repositories",
-    "cross_repo_workflow": {
-      "simple_changes": "Make directly to main branch of supporting repos",
-      "complex_changes": "Create matching feature branches across affected repos",
-      "merge_order": "Supporting repos first, primary repo last"
+    "service_role": "Web-based command and control interface for Loqa system management",
+    "service_type": "Frontend service (React/Next.js)",
+    "dependencies": ["loqa-proto"],
+    "communicates_with": ["loqa-hub"],
+    "microservice_architecture": {
+      "structure": "Part of loqalabs/ microservice ecosystem - each subfolder is an independent git repository",
+      "peer_services_location": "../ (one folder up from current repo)",
+      "check_before_cloning": "Always check if ../SERVICE_NAME exists before attempting to clone repositories",
+      "ui_service_role": "Provides web interface for system administration and monitoring",
+      "cross_service_changes": {
+        "simple_changes": "Make directly to main branch of supporting repos (proto, configs)",
+        "complex_changes": "Create matching feature branches across affected repos",
+        "merge_order": "Supporting repos first (proto), backend services (hub), UI services last"
+      }
     }
   },
   "best_practices": [
