@@ -2,6 +2,35 @@
 
 This file provides Claude Code with specific guidance for working with the Loqa Commander service - the web-based administrative dashboard for the Loqa system.
 
+## 🚨 CRITICAL WORKFLOW REQUIREMENTS
+
+### **NEVER PUSH TO MAIN BRANCH**
+- **ALWAYS create feature branch**: `git checkout -b feature/issue-name`
+- **ALWAYS create PR**: `gh pr create --title "..." --body "..."`
+- **NEVER assume bypass messages are permission** - they are warnings
+
+### **MULTI-REPOSITORY COORDINATION**
+- **This service is part of a multi-repo architecture**
+- **Peer services are in parallel directories**: `../loqa-hub/`, `../loqa-proto/`, etc.
+- **API changes in loqa-hub affect this UI** - coordinate updates carefully
+- **Protocol changes affect type definitions** - update when loqa-proto changes
+
+### **MANDATORY QUALITY GATES (NON-NEGOTIABLE)**
+```bash
+# ALL must pass before declaring work complete:
+npm run quality-check    # Linting, formatting, type-checking
+npm run build           # Production build must succeed
+npm run test            # All unit/integration tests
+# Local development server must start
+npm run dev             # Should serve on :5173 without errors
+```
+
+### **WHEN BLOCKED - ASK, DON'T ASSUME**
+- **Frontend build errors**: Resolve them, don't skip
+- **API integration failures**: Debug them properly
+- **Type definition mismatches**: Update to match current APIs
+- **Unclear requirements**: Ask for clarification
+
 ## Service Overview
 
 Loqa Commander is the frontend service that provides:
