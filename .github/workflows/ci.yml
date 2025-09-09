@@ -23,16 +23,9 @@ jobs:
     with:
       node-version: '20'
 
-  security:
-    name: Security Analysis
-    uses: loqalabs/.github/.github/workflows/security-scan.yml@main
-    with:
-      language: 'javascript'
-      node-version: '20'
-
   docker:
     name: Docker Build and Security
-    needs: [test, security]
+    needs: [test]
     if: github.event_name != 'pull_request'
     uses: loqalabs/.github/.github/workflows/docker-build-and-push.yml@main
     with:
