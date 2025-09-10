@@ -28,7 +28,7 @@
     "@vitejs/plugin-vue": "^6.0.1",
     "@vue/eslint-config-prettier": "^10.2.0",
     "eslint": "^9.35.0",
-    "eslint-plugin-vue": "^9.33.0",
+    "eslint-plugin-vue": "^10.4.0",
     "postcss": "^8.4.35",
     "prettier": "^3.6.2",
     "tailwindcss": "^4.1.13",

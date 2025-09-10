@@ -22,6 +22,10 @@ export default [
         window: 'readonly',
         document: 'readonly',
         console: 'readonly',
+        localStorage: 'readonly',
+        fetch: 'readonly',
+        setInterval: 'readonly',
+        clearInterval: 'readonly',
         // Vue globals
         defineProps: 'readonly',
         defineEmits: 'readonly',
