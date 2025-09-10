@@ -11,7 +11,7 @@
         </p>
       </div>
 
-      <button @click="fetchData" :disabled="loading" class="btn-primary">
+      <button @click="refreshData" :disabled="loading" class="btn-primary">
         <svg
           v-if="loading"
           class="animate-spin -ml-1 mr-3 h-4 w-4 text-white"
@@ -99,75 +99,37 @@
     <EventDetailModal
       :open="selectedEvent !== null"
       :event="selectedEvent"
-      @close="selectedEvent = null"
+      @close="eventsStore.clearSelectedEvent"
     />
   </div>
 </template>
 
 <script setup>
-import { ref, onMounted, onUnmounted } from 'vue'
+import { storeToRefs } from 'pinia'
+import { onMounted, onUnmounted } from 'vue'
 import { ArrowPathIcon, ExclamationTriangleIcon, MicrophoneIcon } from '@heroicons/vue/24/outline'
+import { useEventsStore } from '../stores/events'
 import VoiceEventTimeline from '@/components/VoiceEventTimeline.vue'
 import EventDetailModal from '@/components/EventDetailModal.vue'
 
-const events = ref([])
-const activeRelaysCount = ref(0)
-const loading = ref(true)
-const error = ref(null)
-const selectedEvent = ref(null)
-let refreshInterval = null
+const eventsStore = useEventsStore()
 
-const fetchActiveRelays = async () => {
-  try {
-    const response = await fetch('/api/active-relays')
-    if (response.ok) {
-      const data = await response.json()
-      activeRelaysCount.value = data.count || 0
-    }
-  } catch (err) {
-    console.error('Failed to fetch active relays:', err)
-    // Don't update error state for this - it's supplementary data
-  }
-}
+// Extract reactive state from store
+const { events, selectedEvent, activeRelaysCount, loading, error } = storeToRefs(eventsStore)
 
-const fetchEvents = async () => {
-  try {
-    loading.value = true
-    const response = await fetch('/api/voice-events')
-
-    if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`)
-    }
-
-    const data = await response.json()
-    events.value = data.events || []
-    error.value = null
-  } catch (err) {
-    console.error('Failed to fetch voice events:', err)
-    error.value = err.message
-  } finally {
-    loading.value = false
-  }
-}
-
-const fetchData = async () => {
-  await Promise.all([fetchEvents(), fetchActiveRelays()])
-}
+// Extract actions from store
+const { refreshData, selectEvent, startAutoRefresh, stopAutoRefresh } = eventsStore
 
 const handleEventClick = (event) => {
-  selectedEvent.value = event
+  selectEvent(event)
 }
 
 onMounted(() => {
-  fetchData()
-
-  // Auto-refresh every 5 seconds
-  refreshInterval = setInterval(fetchData, 5000)
+  refreshData()
+  startAutoRefresh(5000) // Auto-refresh every 5 seconds
 })
 
 onUnmounted(() => {
-  if (refreshInterval) {
-    clearInterval(refreshInterval)
-  }
+  stopAutoRefresh()
 })
 </script>

@@ -241,97 +241,29 @@
       v-if="selectedSkill"
       :skill="selectedSkill"
       :is-open="!!selectedSkill"
-      @close="selectedSkill = null"
+      @close="skillsStore.clearSelectedSkill"
       @updated="handleSkillUpdated"
     />
   </div>
 </template>
 
 <script setup>
-import { ref, computed, onMounted } from 'vue'
+import { storeToRefs } from 'pinia'
+import { onMounted } from 'vue'
+import { useSkillsStore } from '../stores/skills'
 import SkillDetailModal from '../components/SkillDetailModal.vue'
 
-const skills = ref([])
-const selectedSkill = ref(null)
-const loading = ref(true)
-const error = ref(null)
+const skillsStore = useSkillsStore()
 
-const enabledSkills = computed(() => skills.value.filter((s) => s.config.enabled).length)
-const skillsWithErrors = computed(() => skills.value.filter((s) => s.error_count > 0).length)
-const totalUsage = computed(() =>
-  skills.value.reduce((sum, s) => sum + (s.status.usage_count || 0), 0)
-)
+// Extract reactive state from store
+const { skills, selectedSkill, loading, error, enabledSkills, skillsWithErrors, totalUsage } =
+  storeToRefs(skillsStore)
 
-const loadSkills = async () => {
-  try {
-    loading.value = true
-    error.value = null
-
-    const response = await fetch('/api/skills')
-    if (!response.ok) {
-      throw new Error(`Failed to load skills: ${response.status}`)
-    }
-
-    const data = await response.json()
-    skills.value = data.skills || []
-  } catch (err) {
-    console.error('Failed to load skills:', err)
-    error.value = err.message
-  } finally {
-    loading.value = false
-  }
-}
-
-const selectSkill = (skill) => {
-  selectedSkill.value = skill
-}
-
-const enableSkill = async (skillId) => {
-  try {
-    const response = await fetch(`/api/skills/${skillId}/enable`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: '{}',
-    })
-
-    if (!response.ok) {
-      throw new Error(`Failed to enable skill: ${response.status}`)
-    }
-
-    // Refresh the skills list
-    await loadSkills()
-  } catch (err) {
-    console.error('Failed to enable skill:', err)
-    // You might want to show a toast notification here
-  }
-}
-
-const disableSkill = async (skillId) => {
-  try {
-    const response = await fetch(`/api/skills/${skillId}/disable`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: '{}',
-    })
-
-    if (!response.ok) {
-      throw new Error(`Failed to disable skill: ${response.status}`)
-    }
-
-    // Refresh the skills list
-    await loadSkills()
-  } catch (err) {
-    console.error('Failed to disable skill:', err)
-    // You might want to show a toast notification here
-  }
-}
+// Extract actions from store
+const { loadSkills, selectSkill, enableSkill, disableSkill, refreshSkills } = skillsStore
 
 const handleSkillUpdated = () => {
-  loadSkills()
+  refreshSkills()
 }
 
 onMounted(() => {
