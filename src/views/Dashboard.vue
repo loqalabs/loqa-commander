@@ -10,9 +10,9 @@
     <!-- System Status Cards -->
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
       <!-- System Health -->
-      <div class="bg-white dark:bg-gray-800 rounded-lg shadow p-6">
+      <div class="bg-white dark:bg-gray-800 rounded-lg shadow-sm p-6">
         <div class="flex items-center">
-          <div class="flex-shrink-0">
+          <div class="shrink-0">
             <div
               class="w-8 h-8 bg-green-100 dark:bg-green-900/30 rounded-lg flex items-center justify-center"
             >
@@ -39,9 +39,9 @@
       </div>
 
       <!-- Active Relays -->
-      <div class="bg-white dark:bg-gray-800 rounded-lg shadow p-6">
+      <div class="bg-white dark:bg-gray-800 rounded-lg shadow-sm p-6">
         <div class="flex items-center">
-          <div class="flex-shrink-0">
+          <div class="shrink-0">
             <div
               class="w-8 h-8 bg-blue-100 dark:bg-blue-900/30 rounded-lg flex items-center justify-center"
             >
@@ -68,9 +68,9 @@
       </div>
 
       <!-- Skills Enabled -->
-      <div class="bg-white dark:bg-gray-800 rounded-lg shadow p-6">
+      <div class="bg-white dark:bg-gray-800 rounded-lg shadow-sm p-6">
         <div class="flex items-center">
-          <div class="flex-shrink-0">
+          <div class="shrink-0">
             <div
               class="w-8 h-8 bg-purple-100 dark:bg-purple-900/30 rounded-lg flex items-center justify-center"
             >
@@ -97,9 +97,9 @@
       </div>
 
       <!-- Recent Commands -->
-      <div class="bg-white dark:bg-gray-800 rounded-lg shadow p-6">
+      <div class="bg-white dark:bg-gray-800 rounded-lg shadow-sm p-6">
         <div class="flex items-center">
-          <div class="flex-shrink-0">
+          <div class="shrink-0">
             <div
               class="w-8 h-8 bg-orange-100 dark:bg-orange-900/30 rounded-lg flex items-center justify-center"
             >
@@ -127,7 +127,7 @@
     </div>
 
     <!-- Quick Actions -->
-    <div class="bg-white dark:bg-gray-800 rounded-lg shadow mb-8">
+    <div class="bg-white dark:bg-gray-800 rounded-lg shadow-sm mb-8">
       <div class="px-6 py-4 border-b border-gray-200 dark:border-gray-700">
         <h3 class="text-lg font-medium text-gray-900 dark:text-white">Quick Actions</h3>
       </div>
@@ -190,7 +190,7 @@
     </div>
 
     <!-- Recent Activity Summary -->
-    <div class="bg-white dark:bg-gray-800 rounded-lg shadow">
+    <div class="bg-white dark:bg-gray-800 rounded-lg shadow-sm">
       <div class="px-6 py-4 border-b border-gray-200 dark:border-gray-700">
         <h3 class="text-lg font-medium text-gray-900 dark:text-white">Recent Activity</h3>
       </div>
@@ -211,7 +211,7 @@
               :key="event.id"
               class="flex items-center space-x-4 py-3 border-b border-gray-100 dark:border-gray-700 last:border-b-0"
             >
-              <div class="flex-shrink-0">
+              <div class="shrink-0">
                 <div class="w-2 h-2 rounded-full" :class="getStatusColor(event.success)"></div>
               </div>
               <div class="flex-1 min-w-0">
@@ -283,6 +283,8 @@ onMounted(() => {
 </script>
 
 <style scoped>
+@reference "../style.css";
+
 .dashboard-page {
   @apply p-6;
 }

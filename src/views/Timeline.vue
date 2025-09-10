@@ -41,7 +41,7 @@
     <!-- Content -->
     <div v-if="error" class="rounded-md bg-red-50 dark:bg-red-900/50 p-4">
       <div class="flex">
-        <div class="flex-shrink-0">
+        <div class="shrink-0">
           <ExclamationTriangleIcon class="h-5 w-5 text-red-400 dark:text-red-300" />
         </div>
         <div class="ml-3">

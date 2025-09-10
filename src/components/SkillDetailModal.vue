@@ -232,13 +232,13 @@
                       type="button"
                       @click="configData.enabled = !configData.enabled"
                       :class="[
-                        'relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-offset-2',
+                        'relative inline-flex h-6 w-11 shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-hidden focus:ring-2 focus:ring-blue-600 focus:ring-offset-2',
                         configData.enabled ? 'bg-blue-600' : 'bg-gray-200 dark:bg-gray-600',
                       ]"
                     >
                       <span
                         :class="[
-                          'pointer-events-none inline-block h-5 w-5 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out',
+                          'pointer-events-none inline-block h-5 w-5 transform rounded-full bg-white shadow-sm ring-0 transition duration-200 ease-in-out',
                           configData.enabled ? 'translate-x-5' : 'translate-x-0',
                         ]"
                       ></span>
@@ -256,7 +256,7 @@
                       id="timeout"
                       v-model="configData.timeout"
                       type="text"
-                      class="mt-1 block w-full border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:text-white sm:text-sm"
+                      class="mt-1 block w-full border-gray-300 dark:border-gray-600 rounded-md shadow-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:text-white sm:text-sm"
                       placeholder="30s"
                     />
                   </div>
@@ -274,7 +274,7 @@
                       type="number"
                       min="0"
                       max="10"
-                      class="mt-1 block w-full border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:text-white sm:text-sm"
+                      class="mt-1 block w-full border-gray-300 dark:border-gray-600 rounded-md shadow-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:text-white sm:text-sm"
                     />
                   </div>
 
@@ -294,13 +294,13 @@
                           v-if="typeof value === 'string' || typeof value === 'number'"
                           v-model="configData.config[key]"
                           :type="typeof value === 'number' ? 'number' : 'text'"
-                          class="col-span-2 border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:text-white sm:text-sm"
+                          class="col-span-2 border-gray-300 dark:border-gray-600 rounded-md shadow-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:text-white sm:text-sm"
                         />
                         <input
                           v-else-if="typeof value === 'boolean'"
                           v-model="configData.config[key]"
                           type="checkbox"
-                          class="col-span-2 h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
+                          class="col-span-2 h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded-sm"
                         />
                         <span v-else class="col-span-2 text-sm text-gray-500 dark:text-gray-400">
                           {{ JSON.stringify(value) }}
@@ -313,14 +313,14 @@
                     <button
                       type="button"
                       @click="resetConfig"
-                      class="bg-white dark:bg-gray-700 py-2 px-4 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-600"
+                      class="bg-white dark:bg-gray-700 py-2 px-4 border border-gray-300 dark:border-gray-600 rounded-md shadow-xs text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-600"
                     >
                       Reset
                     </button>
                     <button
                       type="submit"
                       :disabled="saving"
-                      class="bg-blue-600 hover:bg-blue-700 py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:opacity-50"
+                      class="bg-blue-600 hover:bg-blue-700 py-2 px-4 border border-transparent rounded-md shadow-xs text-sm font-medium text-white focus:outline-hidden focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:opacity-50"
                     >
                       {{ saving ? 'Saving...' : 'Save Changes' }}
                     </button>

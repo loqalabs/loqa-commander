@@ -16,7 +16,7 @@
       class="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg p-4 mb-6"
     >
       <div class="flex">
-        <div class="flex-shrink-0">
+        <div class="shrink-0">
           <svg class="h-5 w-5 text-red-400" viewBox="0 0 20 20" fill="currentColor">
             <path
               fill-rule="evenodd"
@@ -36,9 +36,9 @@
     <div v-else class="space-y-6">
       <!-- Skills Overview -->
       <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
-        <div class="bg-white dark:bg-gray-800 rounded-lg shadow p-6">
+        <div class="bg-white dark:bg-gray-800 rounded-lg shadow-sm p-6">
           <div class="flex items-center">
-            <div class="flex-shrink-0">
+            <div class="shrink-0">
               <div
                 class="w-8 h-8 bg-blue-100 dark:bg-blue-900/30 rounded-lg flex items-center justify-center"
               >
@@ -66,9 +66,9 @@
           </div>
         </div>
 
-        <div class="bg-white dark:bg-gray-800 rounded-lg shadow p-6">
+        <div class="bg-white dark:bg-gray-800 rounded-lg shadow-sm p-6">
           <div class="flex items-center">
-            <div class="flex-shrink-0">
+            <div class="shrink-0">
               <div
                 class="w-8 h-8 bg-green-100 dark:bg-green-900/30 rounded-lg flex items-center justify-center"
               >
@@ -96,9 +96,9 @@
           </div>
         </div>
 
-        <div class="bg-white dark:bg-gray-800 rounded-lg shadow p-6">
+        <div class="bg-white dark:bg-gray-800 rounded-lg shadow-sm p-6">
           <div class="flex items-center">
-            <div class="flex-shrink-0">
+            <div class="shrink-0">
               <div
                 class="w-8 h-8 bg-red-100 dark:bg-red-900/30 rounded-lg flex items-center justify-center"
               >
@@ -126,9 +126,9 @@
           </div>
         </div>
 
-        <div class="bg-white dark:bg-gray-800 rounded-lg shadow p-6">
+        <div class="bg-white dark:bg-gray-800 rounded-lg shadow-sm p-6">
           <div class="flex items-center">
-            <div class="flex-shrink-0">
+            <div class="shrink-0">
               <div
                 class="w-8 h-8 bg-purple-100 dark:bg-purple-900/30 rounded-lg flex items-center justify-center"
               >
@@ -156,7 +156,7 @@
       </div>
 
       <!-- Skills List -->
-      <div class="bg-white dark:bg-gray-800 shadow rounded-lg">
+      <div class="bg-white dark:bg-gray-800 shadow-sm rounded-lg">
         <div class="px-6 py-4 border-b border-gray-200 dark:border-gray-700">
           <h3 class="text-lg font-medium text-gray-900 dark:text-white">Installed Skills</h3>
         </div>
@@ -170,7 +170,7 @@
             <div class="flex items-center justify-between">
               <div class="flex items-center space-x-4">
                 <!-- Status Indicator -->
-                <div class="flex-shrink-0">
+                <div class="shrink-0">
                   <div
                     class="w-3 h-3 rounded-full"
                     :class="{
@@ -218,14 +218,14 @@
                 <button
                   v-if="skill.config.enabled"
                   @click.stop="disableSkill(skill.manifest.id)"
-                  class="inline-flex items-center px-3 py-1.5 border border-transparent text-xs font-medium rounded text-red-700 bg-red-100 hover:bg-red-200 dark:bg-red-900/30 dark:text-red-300 dark:hover:bg-red-900/50"
+                  class="inline-flex items-center px-3 py-1.5 border border-transparent text-xs font-medium rounded-sm text-red-700 bg-red-100 hover:bg-red-200 dark:bg-red-900/30 dark:text-red-300 dark:hover:bg-red-900/50"
                 >
                   Disable
                 </button>
                 <button
                   v-else
                   @click.stop="enableSkill(skill.manifest.id)"
-                  class="inline-flex items-center px-3 py-1.5 border border-transparent text-xs font-medium rounded text-green-700 bg-green-100 hover:bg-green-200 dark:bg-green-900/30 dark:text-green-300 dark:hover:bg-green-900/50"
+                  class="inline-flex items-center px-3 py-1.5 border border-transparent text-xs font-medium rounded-sm text-green-700 bg-green-100 hover:bg-green-200 dark:bg-green-900/30 dark:text-green-300 dark:hover:bg-green-900/50"
                 >
                   Enable
                 </button>
@@ -340,6 +340,8 @@ onMounted(() => {
 </script>
 
 <style scoped>
+@reference "../style.css";
+
 .skills-page {
   @apply p-6;
 }
