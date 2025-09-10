@@ -28,10 +28,10 @@
     "@vitejs/plugin-vue": "^6.0.1",
     "@vue/eslint-config-prettier": "^10.2.0",
     "eslint": "^9.35.0",
-    "eslint-plugin-vue": "^9.33.0",
+    "eslint-plugin-vue": "^10.4.0",
     "postcss": "^8.4.35",
     "prettier": "^3.2.5",
     "tailwindcss": "^4.1.13",
-    "vite": "^7.1.4"
+    "vite": "^7.1.5"
   }
 }
