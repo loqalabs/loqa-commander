@@ -36,7 +36,7 @@
                 </DialogTitle>
                 <button
                   @click="$emit('close')"
-                  class="rounded-md text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-primary-500"
+                  class="rounded-md text-gray-400 hover:text-gray-500 focus:outline-hidden focus:ring-2 focus:ring-primary-500"
                 >
                   <XMarkIcon class="h-6 w-6" />
                 </button>
@@ -67,13 +67,13 @@
                         <dd>
                           <span
                             v-if="event.success"
-                            class="inline-flex items-center px-2 py-1 rounded text-xs font-medium bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-200"
+                            class="inline-flex items-center px-2 py-1 rounded-sm text-xs font-medium bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-200"
                           >
                             ✓ Success
                           </span>
                           <span
                             v-else
-                            class="inline-flex items-center px-2 py-1 rounded text-xs font-medium bg-red-100 dark:bg-red-900/30 text-red-800 dark:text-red-200"
+                            class="inline-flex items-center px-2 py-1 rounded-sm text-xs font-medium bg-red-100 dark:bg-red-900/30 text-red-800 dark:text-red-200"
                           >
                             ✗ Failed
                           </span>

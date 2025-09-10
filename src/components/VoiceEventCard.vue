@@ -9,13 +9,13 @@
           </span>
           <span
             v-if="event.success"
-            class="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-200"
+            class="inline-flex items-center px-2 py-0.5 rounded-sm text-xs font-medium bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-200"
           >
             ✓ Success
           </span>
           <span
             v-else
-            class="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-red-100 dark:bg-red-900/30 text-red-800 dark:text-red-200"
+            class="inline-flex items-center px-2 py-0.5 rounded-sm text-xs font-medium bg-red-100 dark:bg-red-900/30 text-red-800 dark:text-red-200"
           >
             ✗ Failed
           </span>
@@ -37,7 +37,7 @@
       <!-- Expand/Collapse button -->
       <button
         @click.stop="toggleExpanded"
-        class="ml-2 text-gray-400 hover:text-gray-600 dark:hover:text-gray-200 focus:outline-none"
+        class="ml-2 text-gray-400 hover:text-gray-600 dark:hover:text-gray-200 focus:outline-hidden"
         :aria-label="expanded ? 'Collapse' : 'Expand'"
       >
         <svg
@@ -72,7 +72,7 @@
         <div>
           <h4 class="text-xs font-medium text-gray-700 dark:text-gray-300 mb-1">Intent</h4>
           <p
-            class="text-sm text-gray-900 dark:text-white font-mono bg-blue-50 dark:bg-blue-900/30 rounded px-2 py-1"
+            class="text-sm text-gray-900 dark:text-white font-mono bg-blue-50 dark:bg-blue-900/30 rounded-sm px-2 py-1"
           >
             {{ event.intent || 'Unknown' }}
           </p>
@@ -105,7 +105,7 @@
           :src="event.audio_url"
           controls
           preload="none"
-          class="w-full h-8 bg-gray-100 dark:bg-gray-700 rounded"
+          class="w-full h-8 bg-gray-100 dark:bg-gray-700 rounded-sm"
         >
           Your browser does not support the audio element.
         </audio>

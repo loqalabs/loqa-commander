@@ -24,7 +24,7 @@
 
       <!-- Timeline stats -->
       <div
-        class="mt-8 bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 p-4"
+        class="mt-8 bg-white dark:bg-gray-800 rounded-lg shadow-xs border border-gray-200 dark:border-gray-700 p-4"
       >
         <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
           <div>

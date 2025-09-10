@@ -10,7 +10,7 @@
       class="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg p-6"
     >
       <div class="flex">
-        <div class="flex-shrink-0">
+        <div class="shrink-0">
           <svg
             class="h-5 w-5 text-blue-400"
             fill="currentColor"
@@ -45,7 +45,7 @@
 
     <!-- Planned Features Preview -->
     <div class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6">
-      <div class="bg-white dark:bg-gray-800 rounded-lg shadow p-6 opacity-75">
+      <div class="bg-white dark:bg-gray-800 rounded-lg shadow-sm p-6 opacity-75">
         <h3 class="text-lg font-medium text-gray-900 dark:text-white mb-4">
           🔧 System Configuration
         </h3>
@@ -64,7 +64,7 @@
         </div>
       </div>
 
-      <div class="bg-white dark:bg-gray-800 rounded-lg shadow p-6 opacity-75">
+      <div class="bg-white dark:bg-gray-800 rounded-lg shadow-sm p-6 opacity-75">
         <h3 class="text-lg font-medium text-gray-900 dark:text-white mb-4">👥 User Management</h3>
         <ul class="space-y-2 text-sm text-gray-600 dark:text-gray-400">
           <li>• User profiles and permissions</li>
@@ -81,7 +81,7 @@
         </div>
       </div>
 
-      <div class="bg-white dark:bg-gray-800 rounded-lg shadow p-6 opacity-75">
+      <div class="bg-white dark:bg-gray-800 rounded-lg shadow-sm p-6 opacity-75">
         <h3 class="text-lg font-medium text-gray-900 dark:text-white mb-4">
           🔐 Privacy & Security
         </h3>
@@ -100,7 +100,7 @@
         </div>
       </div>
 
-      <div class="bg-white dark:bg-gray-800 rounded-lg shadow p-6 opacity-75">
+      <div class="bg-white dark:bg-gray-800 rounded-lg shadow-sm p-6 opacity-75">
         <h3 class="text-lg font-medium text-gray-900 dark:text-white mb-4">💾 Backup & Restore</h3>
         <ul class="space-y-2 text-sm text-gray-600 dark:text-gray-400">
           <li>• Automated backup scheduling</li>
@@ -125,6 +125,8 @@
 </script>
 
 <style scoped>
+@reference "../style.css";
+
 .settings-page {
   @apply p-6;
 }

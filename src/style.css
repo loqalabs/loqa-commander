@@ -1,54 +1,84 @@
-@import 'tailwindcss/base';
-@import 'tailwindcss/components';
-@import 'tailwindcss/utilities';
+@import 'tailwindcss';
+
+@plugin '@tailwindcss/forms';
+
+@theme {
+  --color-primary-50: #eff6ff;
+  --color-primary-100: #dbeafe;
+  --color-primary-200: #bfdbfe;
+  --color-primary-300: #93c5fd;
+  --color-primary-400: #60a5fa;
+  --color-primary-500: #3b82f6;
+  --color-primary-600: #2563eb;
+  --color-primary-700: #1d4ed8;
+  --color-primary-800: #1e40af;
+  --color-primary-900: #1e3a8a;
+  --color-primary-950: #172554;
+}
+
+/*
+  The default border color has changed to `currentcolor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentcolor);
+  }
+}
 
 /* Custom styles for Loqa Commander */
-@layer components {
-  .voice-event-card {
-    @apply bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 p-4 hover:shadow-md transition-all duration-200;
-  }
+.voice-event-card {
+  @apply bg-white dark:bg-gray-800 rounded-lg shadow-xs border border-gray-200 dark:border-gray-700 p-4 hover:shadow-md transition-all duration-200;
+}
 
-  .voice-event-card.compact {
-    @apply py-3 px-4;
-  }
+.voice-event-card.compact {
+  @apply py-3 px-4;
+}
 
-  .confidence-bar {
-    @apply h-2 rounded-full bg-gray-200 dark:bg-gray-700 overflow-hidden;
-  }
+.confidence-bar {
+  @apply h-2 rounded-full bg-gray-200 dark:bg-gray-700 overflow-hidden;
+}
 
-  .confidence-fill {
-    @apply h-full transition-all duration-300;
-  }
+.confidence-fill {
+  @apply h-full transition-all duration-300;
+}
 
-  .confidence-high {
-    @apply bg-green-500;
-  }
+.confidence-high {
+  @apply bg-green-500;
+}
 
-  .confidence-medium {
-    @apply bg-yellow-500;
-  }
+.confidence-medium {
+  @apply bg-yellow-500;
+}
 
-  .confidence-low {
-    @apply bg-red-500;
-  }
+.confidence-low {
+  @apply bg-red-500;
+}
 
-  .timeline-line {
-    @apply absolute left-6 top-0 w-px bg-gray-300 dark:bg-gray-600;
-  }
+.timeline-line {
+  @apply absolute left-6 top-0 w-px bg-gray-300 dark:bg-gray-600;
+}
 
-  .timeline-dot {
-    @apply absolute left-4 w-4 h-4 bg-primary-500 border-4 border-white dark:border-gray-800 rounded-full shadow-sm;
-  }
+.timeline-dot {
+  @apply absolute left-4 w-4 h-4 bg-primary-500 border-4 border-white dark:border-gray-800 rounded-full shadow-xs;
+}
 
-  .btn-primary {
-    @apply inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-primary-600 hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 disabled:opacity-50;
-  }
+.btn-primary {
+  @apply inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-xs text-white bg-primary-600 hover:bg-primary-700 focus:outline-hidden focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 disabled:opacity-50;
+}
 
-  .nav-link {
-    @apply text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors;
-  }
+.nav-link {
+  @apply text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors;
+}
 
-  .nav-link-active {
-    @apply text-primary-600 dark:text-primary-400 bg-primary-50 dark:bg-primary-900/20;
-  }
+.nav-link-active {
+  @apply text-primary-600 dark:text-primary-400 bg-primary-50 dark:bg-primary-900/20;
 }
